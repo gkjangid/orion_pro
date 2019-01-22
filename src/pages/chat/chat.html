@@ -1,0 +1,70 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>
+            <span *ngIf='team'>Team: {{ team }}</span>
+            <span *ngIf='!team'>{{ title }}</span>
+        </ion-title>
+    </ion-navbar>
+
+    <ion-toolbar color='light'>
+
+        <ion-segment [(ngModel)]='segment' *ngIf='teams?.length'>
+            <ion-segment-button
+                *ngFor='let item of segments'
+                [value]='item.value'
+                (click)='changeSegment( item.value )'
+            >
+                {{ item.label }}
+            </ion-segment-button>
+
+        </ion-segment>
+
+        <div text-center text-uppercase ion-text color='primary' *ngIf='!teams?.length'>
+            Activity
+        </div>
+
+    </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-fab top right *ngIf='segment=="team" && teams.length > 1 && !userActivity'>
+        <button ion-fab mini (click)='changeTeam()'>
+            <ion-icon name='ios-people'></ion-icon>
+        </button>
+    </ion-fab>
+
+
+    <ion-list no-lines>
+
+        <ion-item class='message' *ngFor='let item of messages'>
+            <p>
+                <span class='message--time'>{{ item.time | date:'hh:mm a dd-MMM' }}</span>
+                <span class='message--username'>{{ item.fromUser }}</span>
+            </p>
+            <p class='message--text' text-wrap>{{ item.message }}</p>
+        </ion-item>
+
+        <ion-item class='message' text-center *ngIf='!messages?.length'>
+            <ion-spinner *ngIf='showSpinner'></ion-spinner>
+            <b *ngIf='!showSpinner'>No messages here</b>
+        </ion-item>
+    </ion-list>
+
+</ion-content>
+
+
+
+<ion-footer>
+    <ion-item>
+        <ion-input
+            placeholder='Enter message here...'
+            [(ngModel)]='message'
+            (keyup)='keyup( $event )'
+        ></ion-input>
+        <button ion-button item-right (click)='send()'>Send</button>
+    </ion-item>
+</ion-footer>

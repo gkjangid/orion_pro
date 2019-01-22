@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="10px" height="6px" viewBox="0 0 10 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>Shape Copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="V5" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="My-Activities-Copy" transform="translate(-322.000000, -112.000000)" fill="#C8C8C8" fill-rule="nonzero">
+            <g id="Group" transform="translate(196.000000, 107.000000)">
+                <path d="M134.901409,5.16729279 C134.789294,5.05573342 134.656394,5 134.502833,5 L126.566903,5 C126.41328,5 126.280473,5.05573342 126.168265,5.16729279 C126.056057,5.27897554 126,5.4110147 126,5.56365704 C126,5.71626853 126.056057,5.8483077 126.168265,5.95989791 L130.136246,9.90494202 C130.248578,10.0165014 130.381385,10.0723582 130.534884,10.0723582 C130.688382,10.0723582 130.821313,10.0165014 130.933428,9.90494202 L134.901409,5.95986707 C135.013492,5.8483077 135.069767,5.71626853 135.069767,5.5636262 C135.069767,5.4110147 135.013492,5.27897554 134.901409,5.16729279 Z" id="Shape-Copy"></path>
+            </g>
+        </g>
+    </g>
+</svg>

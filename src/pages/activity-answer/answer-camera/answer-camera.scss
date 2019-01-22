@@ -1,0 +1,18 @@
+answer-camera {
+
+    .camera--icon-container {
+        text-align: center;
+    }
+
+    .camera--icon {
+        font-size: 5em;
+        padding: 0 0.2em;
+        border: solid thin grey;
+        border-radius: 1em;
+    }
+
+    .camera--file-input {
+        display: none;
+    }
+
+}

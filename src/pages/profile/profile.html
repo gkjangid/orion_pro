@@ -1,0 +1,46 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>Learner Profile</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+    <ion-segment [(ngModel)]='selectedSegment'>
+        <ion-segment-button
+            *ngFor='let segment of segmentList'
+            [value]='segment'
+        >{{ segment | titlecase }}
+        </ion-segment-button>
+    </ion-segment>
+
+    <div
+        *ngFor='let segment of segmentList; index as index'
+        style='margin:auto'
+        [ngStyle]='{
+            "visibility":  showCharts[ segment ]? "visible" : "hidden",
+            "display":    !showCharts[ segment ] || selectedSegment == segment ? "block" : "none"
+        }'
+    >
+        <chart
+            *ngIf='chartOn.gauge'
+            chartType='Gauge'
+            [data]='data[ segment ]'
+            [chartOptions]='chartOptions.Gauge'
+            (chartReady)='chartReady( $event, segment )'
+        ></chart>
+
+        <chart
+            *ngIf='chartOn.barChart'
+            chartType='BarChart'
+            [data]='data[ segment ]'
+            [chartOptions]='chartOptions.BarChart'
+            (chartReady)='chartReady( $event, segment )'
+        ></chart>
+
+    </div>
+
+</ion-content>

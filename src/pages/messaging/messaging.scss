@@ -1,0 +1,71 @@
+page-messaging {
+
+    th, td {
+        padding: 1em;
+        text-align: center;
+    }
+
+    th {
+        background-color: white;
+    }
+
+    td.pointer {
+        cursor: pointer;
+        color: blue;
+    }
+
+    .col__title {
+        text-align: left;
+    }
+
+ion-app.ios {
+    font-family:  'Montserrat', sans-serif !important ; 
+    font-size: 1.4rem;
+    background-color: #fff;
+}
+.toolbar-title-ios, .toolbar-title-md {
+    font-weight:500;
+    font-family:  'Montserrat', sans-serif !important ; 
+    color: #383838;
+}
+
+.bar-button-default-ios, .bar-button-default.bar-button-ios-default, .bar-button-clear-ios-default {
+    color: #383838;
+    background-color: transparent;
+}
+
+.bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+    color:#383838;
+    background-color: transparent;
+}
+
+.toolbar-background-ios, .toolbar-background-md {
+    background: #f5f6fa;
+}
+.header-ios .toolbar-background-ios, .footer-ios .toolbar-background-ios {
+    border-style: solid;
+    border-color: transparent;
+}
+
+div.scroll-content {
+    background-color:#f5f6fa;
+}
+
+ion-label{white-space: inherit;}
+.card-ios {
+    margin: 12px;
+    border-radius: 5px;}
+small {
+    font-size: 65%;
+    font-weight: 400;
+    color: #7b7b7b;
+     font-family:  'Montserrat', sans-serif !important ; 
+}
+
+.item-ios p {color:#383838;}
+.toolbar-title-ios {
+    text-align: left;
+    
+}
+
+}

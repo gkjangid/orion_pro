@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Activities</ion-title>
+
+    <ion-buttons end>
+      <button ion-button no-padding>
+        <ion-item>
+    <ion-avatar>
+      <img src="assets/imgs/slide0.jpg">
+    </ion-avatar>
+  </ion-item>
+      </button>
+    </ion-buttons>
+
+<!-- <ion-buttons end>
+ <ion-item>
+    <ion-avatar>
+      <img src="assets/imgs/slide0.jpg">
+    </ion-avatar>
+  </ion-item>
+</ion-buttons> -->
+
+  </ion-navbar>
+</ion-header>
+
+ <ion-content>
+
+  <ion-searchbar #searchBar
+    [(ngModel)]="searchText"
+    (ionInput)="inputChanged( $event )"
+  ></ion-searchbar> 
+
+<activity-list [activities]='activities' [filterEnrolled]='false'></activity-list> 
+
+  <ion-card>
+      <ion-item>
+          <ion-thumbnail item-start>
+          <img class="circle-pic" src="assets/imgs/activity-list.png">
+          </ion-thumbnail>
+          <h2>kp <small style="color:#928f8f">(0 Challenges )</small> </h2>
+          <ion-icon name="md-calendar"></ion-icon>
+          <p style="display: -webkit-inline-box;">date</p>
+      </ion-item>
+      <ion-card-content>
+          <p>description</p>
+      </ion-card-content>
+  </ion-card>
+
+</ion-content> 

@@ -1,0 +1,53 @@
+page-home {
+
+
+    .logo {
+        width: 33vmin;
+        border: solid thin grey;
+    }
+
+    .spinner-div {
+        margin-top:    -5em;
+        padding-bottom: 2em;
+    }
+
+
+.tabs-ios .tab-button:hover:not(.disable-hover), 
+.tabs-ios .tab-button[aria-selected=true] {color: #12c3f4;}
+
+.tabs-ios .tab-button-icon{height: auto;font-size: 15px;min-width:20px;width:20px;} 
+.tabs-md .tab-button-icon {height: auto;font-size: 15px;min-width:20px; width:20px;}
+
+.tabs-md .tab-button[aria-selected=true] .tab-button-icon, 
+.tabs-ios .tab-button[aria-selected=true] .tab-button-icon {
+    width: 10px;
+}
+
+
+.ion-ios-home{content:url(../assets/imgs/Learning-UI/my-activities-selected.svg);}
+.ion-ios-home-outline:before {content:url(../assets/imgs/Learning-UI/my-activities-unselected.svg);}
+
+
+.ion-md-home {content:url(../assets/imgs/Learning-UI/my-activities-selected.svg);}
+
+.ion-md-home:before {content:url(../assets/imgs/Learning-UI/my-activities-unselected.svg);} 
+
+
+
+.ion-ios-apps{content:url(../assets/imgs/Learning-UI/activities-selected.svg);}
+.ion-ios-apps-outline:before {content:url(../assets/imgs/Learning-UI/activities-unselected.svg);}
+
+.ion-md-apps {content:url(../assets/imgs/Learning-UI/activities-selected.svg);}
+.ion-md-apps:before {content:url(../assets/imgs/Learning-UI/activities-unselected.svg);}
+
+
+.ion-ios-book { content: url(../assets/imgs/Learning-UI/notebook-selected.svg);}
+.ion-ios-book-outline:before {content: url(../assets/imgs/Learning-UI/notebook-unselected.svg);}
+
+
+.ion-md-book { content: url(../assets/imgs/Learning-UI/notebook-selected.svg);}
+.ion-md-book:before{content: url(../assets/imgs/Learning-UI/notebook-unselected.svg);}
+
+
+
+}

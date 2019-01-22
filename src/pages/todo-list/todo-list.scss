@@ -1,0 +1,66 @@
+page-todo-list {
+
+    th, td {
+        padding: 0.5em;
+    }
+
+    .overdue {
+        color: color( $colors, danger );
+        font-weight: bold;
+    }
+.item-ios-dark, .item-divider-ios-dark, .item-divider-md-dark  {
+	color: #383838; 
+	background-color: #f5f6fa;
+	border-style: solid;
+	border-color: rgba(0, 0, 0, 0.3);
+	border-width: 0 0 0.55px;
+} 
+
+.item-divider-ios, .item-divider-md {padding-left: 5px;}    
+ .toolbar-background-ios, .toolbar-background-md  {
+    background: #f5f6fa;
+}
+
+.toolbar-title-ios, .toolbar-title-md {
+    text-align: left;
+}
+
+.toolbar-title-ios, .toolbar-title-md {
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif !important;
+    color: #383838;
+}
+
+.bar-button-default-ios, .bar-button-default-md, .bar-button-default.bar-button-ios-default, .bar-button-clear-ios-default {
+    color: #383838;
+    background-color: transparent;
+}
+.card-ios, .card-md {
+    margin:0px 0px 0px 0px;
+    border-radius: 0px;
+    width: calc(100%);
+    font-size: 1.4rem;
+    background: #fff;
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+.ion-md-calendar:before {
+    color: #12c3f4;
+}
+
+.badge-ios-danger, .badge-md-danger {
+    color: #fff;
+    background-color: #ffc125;
+}
+
+.input-wrapper{
+        border-right:1px solid #cccccc9c;
+}
+.item-ios, .item-md [item-end] {
+    margin:0px 0px 0px 10px;
+}
+.bar-button-default-md:hover:not(.disable-hover), .bar-button-clear-md-default:hover:not(.disable-hover), .bar-button-md-default:hover:not(.disable-hover) {
+    color: #ccc;
+}
+
+}

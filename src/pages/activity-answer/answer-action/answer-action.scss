@@ -1,0 +1,14 @@
+answer-action {
+
+    ion-label {
+        color: color( $colors, primary ) !important;
+        font-weight: bold;
+    }
+    ion-datetime {
+        .datetime-placeholder {
+            white-space: normal;
+        }
+        padding-left: 0.5em !important;
+    }
+
+}

@@ -1,0 +1,19 @@
+<ion-content>
+
+    <div text-center class='vertical-middle' *ngIf='!settings.user.userId'>
+        <div class='spinner-div'><ion-spinner></ion-spinner></div>
+        <img class='logo' src='assets/imgs/logo.png'>
+    </div>
+
+
+    <ion-tabs tabsHighlight='true' *ngIf='settings.user.userId && showTabs'>
+        <ion-tab
+            *ngFor='let tab of tabs'
+            [tabIcon]='tab.icon'
+            [tabTitle]='tab.title'
+            [root]='tab.component'
+            [tabsHideOnSubPages]='true'
+        ></ion-tab>
+    </ion-tabs>
+
+</ion-content>

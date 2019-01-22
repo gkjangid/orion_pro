@@ -1,0 +1,45 @@
+<content-grid>
+<ng-container *ngFor='let activity of activities'>
+
+    <ion-card
+        margin-bottom
+        (click)='activityInfo( activity )'
+        *ngIf='!filterEnrolled || enrolledIds.indexOf( activity.pk ) == -1'
+    >
+
+    <ion-item>
+        <ion-thumbnail item-start>
+        <img alt='' class='circle-pic'
+        [src]='activity.pictureUrl || "assets/imgs/activity-list.png"'
+        >
+        </ion-thumbnail>
+        <h2>{{ activity.title }} <small style="color:#928f8f">({{ activity.journal_count }} Challenges )</small> </h2>
+        <ion-icon name="md-calendar"></ion-icon>
+        <p style="display: -webkit-inline-box;">{{ activity.modified | date:'d-MMM HH:mm' }}</p>
+        <!-- <div class='activity-info' [ngClass]='"format__" + format'>
+
+            <p class='activity-info--title'>
+                <ion-icon
+                    class='activity-info--enrolled'
+                    name='checkmark-circle'
+                    item-end
+                    color='secondary'
+                    *ngIf='enrolledIds.indexOf( activity.pk ) != -1'
+                ></ion-icon>
+                {{ activity.title }}
+            </p>
+
+            <p class='activity-info--description'>
+                {{ activity.description }}
+            </p>
+        </div> -->
+
+    </ion-item>
+    <ion-card-content>
+            <p>{{ activity.description}}</p>
+    </ion-card-content>
+
+    </ion-card>
+
+</ng-container>
+</content-grid>

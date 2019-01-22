@@ -1,0 +1,66 @@
+<ion-content padding>
+    <ion-title text-center padding>
+        <img src="assets/imgs/Learning-UI-graphics/logo-white.png"/>
+    </ion-title>
+<content-grid>
+
+ <ion-segment [(ngModel)]="pet">
+    <ion-segment-button class="dactive" value="kittens">
+      Login
+    </ion-segment-button>
+    <ion-segment-button value="puppies">
+      Signup
+    </ion-segment-button>
+  </ion-segment>
+
+
+    <ion-card>
+    <ion-card-content padding>
+    <ion-list no-lines class='input-fields'>
+    <ion-icon class="usre-icon" role="img">
+    <img src="assets/imgs/icons-png/username.png">
+    </ion-icon>
+    <ion-item>
+        <!-- <ion-label stacked></ion-label> -->
+        
+        <ion-input placeholder='First Name' [(ngModel)]='firstName'></ion-input>
+    </ion-item>
+<ion-icon class="usre-icon" role="img">
+    <img src="assets/imgs/icons-png/username.png">
+    </ion-icon>
+    <ion-item>
+        <!-- <ion-label stacked>Last Name</ion-label> -->
+
+        <ion-input placeholder='Last Name' [(ngModel)]='lastName'></ion-input>
+    </ion-item>
+<ion-icon class="usre-icon" role="img">
+    <img src="assets/imgs/icons-png/messaging.png">
+    </ion-icon>
+    <ion-item margin-bottom>
+        <!-- <ion-label stacked>Email</ion-label> -->
+        <ion-input placeholder='Email' [(ngModel)]='email' type='email'></ion-input>
+    </ion-item>
+
+    <ion-item *ngIf='error'>
+        <div text-center class='error'>{{ error }}</div>
+    </ion-item>
+
+    </ion-list>
+
+   
+
+    </ion-card-content>
+    </ion-card>
+
+    <div  margin>
+        <button ion-button block round color='primary'
+            (click)='register()'
+            [disabled]='cannotRegister()'>   
+            <img style="width:22px; padding-right:7px" src="assets/imgs/icons-png/new-user.png">
+            <ion-spinner *ngIf='showSpinner'></ion-spinner>
+            Register
+        </button>
+    </div>
+    
+</content-grid>
+</ion-content>

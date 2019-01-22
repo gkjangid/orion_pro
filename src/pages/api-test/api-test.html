@@ -1,0 +1,49 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>api-test</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-item>
+        <ion-label fixed item-left>Method:</ion-label>
+        <ion-select item-left interface='popover' [(ngModel)]='method'>
+            <ion-option value='get' >GET</ion-option>
+            <ion-option value='post'>POST</ion-option>
+        </ion-select>
+    </ion-item>
+
+    <ion-item>
+        <ion-label stacked>API:  </ion-label>
+        <ion-input placeholder='...' [(ngModel)]='apiName'></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label stacked>Resource ID:  </ion-label>
+        <ion-input placeholder='...' [(ngModel)]='rid'    ></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label stacked>Sub-resource ID:</ion-label>
+        <ion-input placeholder='...' [(ngModel)]='srid'   ></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label stacked>Payload: </ion-label>
+        <ion-textarea placeholder='...' [(ngModel)]='payload'   ></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+        <button ion-button outline (click)='submit()'>Submit</button>
+    </ion-item>
+
+<pre>
+{{ response | json:4 }}
+</pre>
+
+
+</ion-content>

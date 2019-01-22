@@ -1,0 +1,12 @@
+<ion-input
+  type='number'
+  [(ngModel)]='userActivity.answers[ questionIdx ]'
+  placeholder='Enter answer here...'
+  #fieldAnswer='ngModel'
+></ion-input>
+
+<button
+  ion-button block round
+  [disabled]='fieldAnswer.pristine && !photoChanged'
+  (click)='answerChanged( userActivity.answers[ questionIdx ] )'
+>OK</button>

@@ -1,0 +1,151 @@
+<ion-header>
+  <ion-navbar>
+      <ion-segment [(ngModel)]='segment' color='light'>
+          <ion-segment-button value='info'>
+              <ion-icon name='information-circle'></ion-icon>
+          </ion-segment-button>
+
+          <ion-segment-button value='questions'>
+              <ion-icon name='help-circle'></ion-icon>
+          </ion-segment-button>
+      </ion-segment>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<content-grid>
+
+  <div *ngIf='!activity.briefDescription' text-center>
+      <ion-spinner [style.margin-top]='"40%"'></ion-spinner>
+  </div>
+
+  <div [ngSwitch]='segment' *ngIf='activity.briefDescription'>
+
+    <div *ngSwitchCase='"info"'>
+
+        <h4>{{ activity.title }}</h4>
+        <p *ngIf='userActivity.start_date'>Commencement date: {{ userActivity.start_date | date:"d-MMM-yyyy" }}</p>
+        <p *ngIf='userActivity.deadline'>Deadline: {{ userActivity.deadline | date:"d-MMM-yyyy" }}</p>
+        <p *ngIf='userActivity.team'>Team: {{ userActivity.team }}</p>
+
+        <button
+            ion-button block round margin-bottom
+            *ngIf='lastQuestion > -1 && lastQuestion < activity.questions.length - 1 && canBegin()'
+            (click)='begin()'
+        >
+            {{ lastQuestion < 0 ? "Begin" : "Continue" }}
+        </button>
+
+        <div *ngIf='
+            activity.introUrlType?.toLowerCase().indexOf( "video" ) != -1
+            && platform.is( "mobile" )
+            && platform.isPortrait();
+            then blkVideo; else blkImg
+        '></div>
+
+        <!-- <img *ngIf='userActivity.completed' class='completed-image' src='assets/imgs/completed.png'> -->
+
+        <div class='divider'></div>
+
+        <p class='description'>{{ activity.description }}</p>
+
+        <button ion-button block round (click)='begin()' margin-bottom
+            *ngIf='lastQuestion < activity.questions.length - 1 && canBegin()'
+        >
+            {{ lastQuestion < 0 ? "Begin" : "Continue" }}
+        </button>
+
+    </div><!-- ngSwitchCase = "info" -->
+
+
+    <div *ngSwitchCase='"questions"'>
+        <h6>{{ activity.title | titlecase }}</h6>
+
+        <progress-bar [progress]='progress' *ngIf='lastQuestion > -1'></progress-bar>
+
+        <button
+            ion-button block round margin-bottom (click)='begin()'
+            *ngIf='lastQuestion < activity.questions.length - 1 && canBegin()'
+        >
+            {{ lastQuestion < 0 ? "Begin" : "Continue" }}
+        </button>
+
+        <h1 text-center *ngIf='!activity.questions.length'>There are no questions available!</h1>
+
+        <ion-list>
+            <ion-item
+                *ngFor='let item of activity.questions; index as index'
+                (click)='gotoQuestion( index, activity )'
+            >
+                <div text-left class='question' [ngClass]='{ "completed": index <= lastQuestion }'>
+                    <p text-right text-nowrap class='inline-block vertical-top question-no'>{{ index+1 }}.</p>
+                    <p text-left  text-wrap   class='inline-block question-text'>{{ item.question }}</p>
+                </div>
+            </ion-item>
+        </ion-list>
+    </div><!-- ngSwitchCase = "questions" -->
+
+
+    <button ion-button small outline float-left (click)='editTeam()'
+        *ngIf='!userActivity.completed && userActivity.invitation_id && featureEnabled( "Team" )'
+    >
+        <ion-icon name='ios-people' margin-right></ion-icon>
+        <span *ngIf='!userActivity.team'>Join Team</span>
+        <span *ngIf= 'userActivity.team'>Change Team</span>
+    </button>
+
+    <button ion-button small outline float-left (click)='chat()'
+        *ngIf='userActivity.invitation_id && featureEnabled( "Messaging" )'
+    >
+        <ion-icon name='chatbubbles' margin-right></ion-icon>
+        Messaging
+    </button>
+
+    <button ion-button small outline float-left (click)='activityJournal()'
+        *ngIf='featureEnabled( "Activity-Journal" )'
+    >
+        Journal
+    </button>
+
+    <button ion-button small color='danger' float-left (click)='deleteActivity()'
+        *ngIf='!userActivity.invitation_id && !userActivity.completed'
+    >Delete</button>
+
+
+  </div><!-- ngSwitch -->
+
+</content-grid>
+</ion-content>
+
+
+<ng-template #blkVideo>
+    <p class='avatar-bullet'>{{ activity.avatarBullet1 }}</p>
+
+    <app-media
+        *ngIf='activity.introUrl'
+        [mediaType]   = 'activity.introUrlType'
+        [mediaUrl]    = 'activity.introUrl'
+        cssClassImage = 'image'
+        cssClassVideo = 'video__portrait'
+        defaultImage  = 'activity-intro.png'
+    ></app-media>
+
+    <p class='avatar-bullet'>{{ activity.avatarBullet2 }}</p>
+  </ng-template>
+
+
+  <ng-template #blkImg>
+    <img *ngIf='!activity.introUrl && activity.id'  class='image'  src ='assets/imgs/activity-intro.png'>
+
+    <app-media
+        *ngIf='activity.introUrl'
+        [mediaType]   = 'activity.introUrlType'
+        [mediaUrl]    = 'activity.introUrl'
+        cssClassImage = 'image'
+        cssClassVideo = 'image video__landscape'
+        defaultImage  = 'activity-intro.png'
+        ></app-media>
+
+    <p class='avatar-bullet'>{{ activity.avatarBullet1 }}</p>
+    <p class='avatar-bullet'>{{ activity.avatarBullet2 }}</p>
+  </ng-template>

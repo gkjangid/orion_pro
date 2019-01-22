@@ -1,0 +1,20 @@
+<ng-container [ngSwitch]='type'>
+    <img *ngSwitchCase='"image"'
+        [src]='mediaUrl || "#"'
+        [class]='cssClassImage'
+    >
+
+    <video *ngSwitchCase='"video"'
+        type='video/mp4'
+        [attr.controls]='controls || null'
+        [attr.autoplay]='autoplay || null'
+        [src]='mediaUrl || "#"'
+        [class]='cssClassVideo'
+        [width]='platform.width() - 32'
+    ></video>
+</ng-container>
+
+<img *ngIf='!mediaUrl && defaultImage && showDefaultImage'
+    [src]='"/app/assets/imgs/" + defaultImage'
+    [class]='cssClassImage'
+>

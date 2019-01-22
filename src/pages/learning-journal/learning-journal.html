@@ -1,0 +1,95 @@
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>{{ data?.id? '' : 'New' }} Learning Journal DK</ion-title>
+
+       <ion-buttons right>
+            <button ion-button
+                [disabled]='!data.title?.trim()'
+                (click)='saveJournal()'
+            >Save
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+    <ion-segment [(ngModel)]='segment' *ngIf='featureEnabled( "General-Journal-Question" )'>
+        <ion-segment-button value='notes'>Notes</ion-segment-button>
+        <ion-segment-button value='questions'>Questions</ion-segment-button>
+    </ion-segment>
+
+
+    <ng-container [ngSwitch]='segment'>
+
+        <section *ngSwitchCase='"notes"'>
+
+            <ion-item margin-vertical>
+                <ion-label stacked>Title</ion-label>
+                <ion-input [(ngModel)]='data.title' placeholder='Insert title here...'></ion-input>
+            </ion-item>
+
+            <journal-editor
+                [(text)] = 'data.text'
+            ></journal-editor>
+
+            <div class='error' text-center>{{ error }}</div>
+
+        </section>
+
+
+        <section *ngSwitchCase='"questions"' margin-top>
+
+            <ion-fab bottom right>
+                <button ion-fab mini color='primary' (click)='addQuestion()'>
+                    <ion-icon name='add'></ion-icon>
+                </button>
+            </ion-fab>
+
+            <h6 padding *ngIf='!data?.questions?.length'>Click '+' to add questions</h6>
+
+            <div *ngIf='data?.questions?.length'>
+
+                <ion-list>
+                    <ion-item *ngFor='let item of data?.questions; index as index'>
+                        <ion-label>{{ index + 1 }}.</ion-label>
+                        <ion-textarea
+                            class='question'
+                            [(ngModel)]='item.text'
+                            placeholder='Insert question here...'
+                            (ionChange)='resizeTextarea( index )'
+                        ></ion-textarea>
+                    </ion-item>
+                </ion-list>
+
+                <button ion-button outline small color='dark'
+                    *ngIf='data?.questions?.length
+                        && data?.questions [0].text
+                        && data?.id
+                    '
+                    (click)='createActivity()'
+                >
+                    Create Activity
+                </button>
+
+            </div>
+
+        </section>
+
+   
+
+<ion-list>
+    <ion-item>
+      <h2>01. My Neighbor Totoro</h2>
+     <ion-icon item-end><img src="assets/imgs/Learning-UI/add-notes.svg"></ion-icon>
+    </ion-item>
+</ion-list>            
+
+    </ng-container>
+
+</ion-content>

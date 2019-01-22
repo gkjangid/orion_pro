@@ -1,0 +1,30 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>Feedback</ion-title>
+
+        <ion-buttons right>
+            <button ion-button (click)='submit()' *ngIf='feedback?.trim()' [disabled]='showSpinner'>
+                <ion-spinner *ngIf='showSpinner'></ion-spinner>
+                Done
+            </button>
+        </ion-buttons>
+        
+    </ion-navbar>
+
+    <ion-item-divider color='dark'>
+        Help KurioCities improve
+    </ion-item-divider>
+
+</ion-header>
+
+
+<ion-content>
+
+    <ion-item>
+        <ion-textarea [(ngModel)]='feedback'
+            placeholder='KurioCities is currently in development, help us by entering your feedback here...'
+        ></ion-textarea>
+    </ion-item>
+
+</ion-content>

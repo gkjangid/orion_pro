@@ -1,0 +1,141 @@
+page-register {
+
+    ion-input input {
+        background-color: white !important;
+        padding: 0.75em !important;
+        border-radius: 0.5em !important;
+    }
+
+    ion-item ion-label {
+        color: color( $colors, primary ) !important;
+    }
+
+    ion-card-content, ion-list.input-fields ion-item {
+        background-color: #fff;
+    }
+
+    ion-spinner {
+        margin-right: 1em;
+    }
+
+    input.text-input {
+        padding: 0.1em 0.5em;
+    }
+
+    .button-register-container {
+        margin: 1em;
+        margin-right: 0.5em;
+    }
+.content-md, page-login, .content-ios {
+    background: url(../assets/imgs/Learning-UI-graphics/background-1.png) no-repeat;
+    background-size: 100% 100%;
+}
+div.scroll-content {
+    background-color: transparent !important;
+}
+
+.card-ios, .card-md {
+    margin: 20px 19px !important;
+    border-radius: 4px;
+    width: calc(100% - 34px)!important;
+    font-size: 1.4rem;
+    background: #fff;
+    -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3) !important;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3) !important;
+}
+
+.toolbar-title img { width:25%;}
+.segment-ios .segment-button {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    width: 0;
+    height: 3.2rem;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    font-size: 1.5rem;
+    line-height: 3rem;
+    color: #ffffff;
+    background-color: transparent;
+    font-weight:600;
+}
+.list-ios > .item-block:first-child {
+    border-top: 0.55px solid transparent;
+}
+.usre-icon{
+    position: absolute;
+    z-index: 999;
+    width: 5%;
+    margin-top: 30px;
+}
+
+.button-ios-primary, .button-md-primary{
+opacity:.9!important;
+    border-radius: 4px;
+    height: 2.7em;
+    font-size: 1.6rem;
+    color: #fff;
+    background: rgba(18,195,244,1);
+background: -moz-linear-gradient(top, rgba(18,195,244,1) 0%, rgba(18,195,244,1) 50%, rgba(33,180,226,1) 51%, rgba(18,195,244,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(18,195,244,1)), color-stop(50%, rgba(18,195,244,1)), color-stop(51%, rgba(33,180,226,1)), color-stop(100%, rgba(18,195,244,1)));
+background: -webkit-linear-gradient(top, rgba(18,195,244,1) 0%, rgba(18,195,244,1) 50%, rgba(33,180,226,1) 51%, rgba(18,195,244,1) 100%);
+background: -o-linear-gradient(top, rgba(18,195,244,1) 0%, rgba(18,195,244,1) 50%, rgba(33,180,226,1) 51%, rgba(18,195,244,1) 100%);
+background: -ms-linear-gradient(top, rgba(18,195,244,1) 0%, rgba(18,195,244,1) 50%, rgba(33,180,226,1) 51%, rgba(18,195,244,1) 100%);
+background: linear-gradient(to bottom, rgba(18,195,244,1) 0%, rgba(18,195,244,1) 50%, rgba(33,180,226,1) 51%, rgba(18,195,244,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#12c3f4', endColorstr='#12c3f4', GradientType=0 );
+    margin: 0.4rem 0.2rem;
+    padding: 0 1em;
+}
+ion-icon {
+    display: inline-block;
+    font-size: 1.7em;
+    padding-right: 5px;
+}
+.item-ios {
+    border-bottom: 1px solid #ccc !important;
+}
+.card-ios {
+    margin: 12px;
+    border-radius: 4px;
+    width: calc(100% - 24px);
+    font-size: 1.4rem;
+    background: #fff;
+    -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3) !important;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3) !important;
+}
+.segment-ios .segment-button.segment-activated {
+    color: #fff;
+    background-color: transparent !important;
+    opacity: 1;
+    -webkit-transition: 100ms all linear;
+    transition: 100ms all linear;
+}
+.dactive {
+    color:#a2e6f9 !important;
+   
+}
+.segment-md .segment-button {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    width: 0;
+    height: 4.2rem;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: transparent;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 4rem;
+    text-transform: capitalize;
+    color: #fff;
+    background-color: transparent;
+    opacity: 0.9;
+    -webkit-transition: 100ms all linear;
+    transition: 100ms all linear;
+    padding: 0 6px;
+}
+
+}

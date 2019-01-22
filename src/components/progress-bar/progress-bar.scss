@@ -1,0 +1,25 @@
+progress-bar {
+
+    .progress-bar-container {
+        border:  none;
+        width:   100%;
+        padding: 0;
+    }
+    .progress-bar-segment {
+        height:  0.2em;
+        display: inline-block;
+        border:  solid thin lightgrey;
+        border-right-color: grey;
+    }
+    .progress-bar-segment:last-child {
+        border-right-color: lightgrey;
+    }
+    .progress-bar {
+        margin:             0;
+        white-space:        nowrap;
+        background-color:   lime;
+        color:              transparent;
+        height:             0.2em;
+    }
+
+}

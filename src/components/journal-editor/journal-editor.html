@@ -1,0 +1,7 @@
+<quill-editor
+    [(ngModel)]="_text"
+    [style]="{ height: height }"
+    [modules]="modules"
+    (onContentChanged)="contentChanged( $event );"
+    (onEditorCreated)="editorCreated( $event )"
+></quill-editor>

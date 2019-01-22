@@ -1,0 +1,183 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title *ngIf='questionIdx != null'>Question {{ questionIdx + 1 }}</ion-title>
+
+    <ion-buttons right>
+      <button ion-button (click)='activityJournal()'
+        *ngIf='featureEnabled( "Activity-Journal" )'
+      >
+          <ion-icon name='ios-book'></ion-icon>
+      </button>
+
+      <button ion-button (click)='chat()'
+        *ngIf='userActivity.invitation_id && featureEnabled( "Messaging" )'
+      >
+        <ion-icon name='chatbubbles'></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<content-grid>
+
+  <div *ngIf='
+    question?.pictureUrlType?.toLowerCase().indexOf( "video" ) != -1
+    && platform.is( "mobile" )
+    && platform.isPortrait();
+    then blkVideo; else blkImg
+  '></div>
+
+  <div class='divider'></div>
+
+  <ion-spinner *ngIf='spinner'></ion-spinner>
+  <p class='question' *ngIf='!spinner'>{{ question?.question }}</p>
+
+  <div margin [ngSwitch]='question?.questionType'>
+
+    <answer-radio *ngSwitchCase='"multipleChoice"'
+      [question]='question'
+      [questionIdx]='questionIdx'
+      [userActivity]='userActivity'
+      [photoChanged]='photoChanged'
+      (data)='answerChanged($event)'
+    ></answer-radio>
+
+    <answer-number *ngSwitchCase='"math"'
+      [question]='question'
+      [questionIdx]='questionIdx'
+      [userActivity]='userActivity'
+      [photoChanged]='photoChanged'
+      (data)='answerChanged($event)'
+      ></answer-number>
+
+    <answer-number *ngSwitchCase='"logic"'
+      [question]='question'
+      [questionIdx]='questionIdx'
+      [userActivity]='userActivity'
+      [photoChanged]='photoChanged'
+      (data)='answerChanged($event)'
+    ></answer-number>
+
+    <answer-table *ngSwitchCase='"table"'
+      [question]='question'
+      [questionIdx]='questionIdx'
+      [userActivity]='userActivity'
+      [photoChanged]='photoChanged'
+      (data)='answerChanged($event)'
+    ></answer-table>
+
+    <answer-text *ngSwitchCase='"fillInBlanks"'
+      [question]='question'
+      [questionIdx]='questionIdx'
+      [userActivity]='userActivity'
+      [photoChanged]='photoChanged'
+      (data)='answerChanged($event)'
+    ></answer-text>
+
+    <answer-text *ngSwitchCase='"noAutoCorrection"'
+      [question]='question'
+      [questionIdx]='questionIdx'
+      [userActivity]='userActivity'
+      [photoChanged]='photoChanged'
+      (data)='answerChanged($event)'
+    ></answer-text>
+
+    <answer-upload *ngSwitchCase='"upload"'
+      [question]='question'
+      [questionIdx]='questionIdx'
+      [userActivity]='userActivity'
+      (data)='answerChanged($event)'
+    ></answer-upload>
+
+    <answer-action *ngSwitchCase='"action"'
+      [question]='question'
+      [questionIdx]='questionIdx'
+      [userActivity]='userActivity'
+      (data)='answerChanged($event)'
+    ></answer-action>
+
+  </div>
+
+  <div *ngIf='isPhotoUpload()' text-center>
+    <img
+      *ngIf='userActivity.uploads [questionIdx] && !thumbnail'
+      [src]='userActivity.uploads [questionIdx] + "?" + time'
+      class='thumbnail'
+    >
+
+    <img
+      *ngIf='thumbnail'
+      [src]='thumbnail'
+      class='thumbnail'
+    >
+
+    <answer-camera
+      [question]='question'
+      [questionIdx]='questionIdx'
+      [userActivity]='userActivity'
+      (data)='photoChange($event)'
+    ></answer-camera>
+  </div>
+
+</content-grid>
+</ion-content>
+
+
+<ion-footer>
+  <ion-toolbar color='light'>
+
+    <ion-buttons left>
+        <button ion-button icon-only color='primary' (click)='goPrev()' [disabled]='!questionIdx'>
+            <ion-icon name='arrow-dropleft-circle'></ion-icon>
+        </button>
+    </ion-buttons>
+
+    <ion-buttons right>
+        <button
+            ion-button icon-only color='primary'
+            (click)='goNext()'
+            [disabled]='questionIdx > lastQuestion || questionIdx == activity?.questions.length - 1'
+        >
+            <ion-icon name='arrow-dropright-circle'></ion-icon>
+        </button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-footer>
+
+
+<ng-template #blkVideo>
+  <p class='avatar-bullet'>{{ question.avatarBullet1 }}</p>
+
+  <app-media
+      *ngIf='question.pictureUrl'
+      [mediaType]   = 'question.pictureUrlType'
+      [mediaUrl]    = 'question.pictureUrl'
+      cssClassImage = 'image'
+      cssClassVideo = 'video__portrait'
+      defaultImage  = 'activity-answer.png'
+  ></app-media>
+
+  <p class='avatar-bullet'>{{ question.avatarBullet2 }}</p>
+</ng-template>
+
+
+<ng-template #blkImg>
+  <img *ngIf='!question.pictureUrl && activity' class='image' src ='assets/imgs/activity-answer.png'>
+
+  <app-media
+      *ngIf='question.pictureUrl'
+      [mediaType]   = 'question.pictureUrlType'
+      [mediaUrl]    = 'question.pictureUrl'
+      cssClassImage = 'image'
+      cssClassVideo = 'image video__landscape'
+      defaultImage  = 'activity-answer.png'
+  ></app-media>
+
+  <p class='avatar-bullet'>{{ question.avatarBullet1 }}</p>
+  <p class='avatar-bullet'>{{ question.avatarBullet2 }}</p>
+</ng-template>

@@ -1,0 +1,36 @@
+page-feedback {
+
+    textarea {
+        height: 90vh;
+    }
+.item-ios-dark, .item-divider-ios-dark, .item-divider-md-dark  {
+	color: #383838;
+	background-color: #f5f6fa;
+	border-style: solid;
+	border-color: rgba(0, 0, 0, 0.3);
+	border-width: 0 0 0.55px;
+}
+.toolbar-background-ios, .toolbar-background-md {
+    background: #f5f6fa;
+}
+
+.toolbar-title-ios, .toolbar-title-md {
+    text-align: left;
+}
+
+.toolbar-title-ios, .toolbar-title-md {
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif !important;
+    color: #383838;
+}
+
+.bar-button-default-ios, .bar-button-default-md, .bar-button-default.bar-button-ios-default, .bar-button-clear-ios-default {
+    color: #383838;
+    background-color: transparent;
+}
+
+.bar-button-default-md:hover:not(.disable-hover), .bar-button-clear-md-default:hover:not(.disable-hover), .bar-button-md-default:hover:not(.disable-hover) {
+    color: #ccc;
+}
+
+}

@@ -1,0 +1,15 @@
+<div
+    class='progress-bar-container'
+    margin-vertical
+>
+    <div
+        *ngFor='let progressSegment of progressSegments; index as index'
+        [style.width]='perSegmentWidth'
+        class='progress-bar-segment'
+    >
+        <div
+            class='progress-bar'
+            [style.width]='getSegmentProgress( index, progress )'
+        >{{  progressSegment }}%</div>
+    </div>
+</div>

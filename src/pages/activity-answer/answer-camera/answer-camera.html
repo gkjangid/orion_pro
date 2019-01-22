@@ -1,0 +1,14 @@
+<p class='camera--icon-container'>
+    <label class='camera'>
+
+        <ion-icon name='camera' color='primary' class='camera--icon'></ion-icon>
+
+        <input
+            type='file'
+            accept='image/*'
+            class='camera--file-input'
+            (change)='answerChanged( $event )'
+            capture
+        >
+    </label>
+</p>

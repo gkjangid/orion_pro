@@ -1,0 +1,57 @@
+<ion-menu [content]="content">
+
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>KurioCities</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <ion-content>
+    <ion-list>
+
+      <ion-item detail-none class='menu-item'>
+
+        <ion-icon name='contact'
+          style='margin-right: 0.5em;'
+        ></ion-icon>
+
+        <span class='strong'>{{ api.settings.user.userName }}</span>
+
+        <button item-right ion-button clear menuClose (click)='changePassword()'>
+          <ion-icon name="lock" color='dark'></ion-icon>
+        </button>
+
+        <button item-right ion-button clear menuClose (click)="logout()">
+          <ion-icon name="log-out" color='dark'></ion-icon>
+        </button>
+
+      </ion-item>
+
+
+      <button ion-item menuClose detail-push
+        class='menu-item'
+        *ngFor="let p of pages"
+        (click)="openPage(p)"
+      >
+        <ion-icon [name]="p?.icon" color='primary'></ion-icon>
+        <span class='menu-item--text'>{{p.title}}</span>
+      </button>
+
+
+      <a ion-item menuClose
+        class='menu-item'
+        target='_blank'
+        href='/ae'
+        *ngIf='canAccessAdmin()'
+      >
+        <ion-icon name="at" color='primary'></ion-icon>
+        <span class='menu-item--text'>KurioCities Admin</span>
+      </a>
+
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

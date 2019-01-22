@@ -1,0 +1,67 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Messaging</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+
+
+<ion-card *ngFor='let item of invitations'>
+   
+
+<ion-list>
+    <button ion-item>
+    <ion-row>
+    <ion-col col-4><small>Activity Name :</small></ion-col>
+    <ion-col col-8><P>{{ item?.inviter.first_name }} {{ item?.inviter.last_name }}</P></ion-col>
+    <ion-col col-4><small>Date invited :</small></ion-col>
+    <ion-col col-8><P>{{ item?.created | date:'d-MMM HH:mm' }}</P></ion-col>
+    <ion-col col-4><small>Inviter :</small></ion-col>
+    <ion-col col-8><P></P>{{ item?.inviterUsername }}</ion-col>
+  </ion-row>
+    </button>
+  </ion-list>
+
+</ion-card>
+
+
+
+
+    <!--<table border='1' width='100%'>
+        <thead>
+            <tr>
+                <th
+                    [ngClass]='"col__" + item.name'
+                    *ngFor='let item of columns'
+                >
+                    {{ item.label }} -->
+<!--
+                    (click)='sort( item.name )'
+                    <column-label
+                        [label]='item.label'
+                        [name]='item.name'
+                        [sortColumn]='sortColumn'
+                    ></column-label>
+ -->
+        <!--       </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngIf='!invitations?.length'>
+                <td text-center colspan='99' padding>N/A</td>
+            </tr>
+
+            <tr class='data-row' *ngFor='let item of invitations'>
+                <td text-wrap text-left class='pointer' (click)='chatPage( item )'>
+                    {{ item?.title }}
+                </td>
+                <td>{{ item?.inviterUsername }}</td>
+                <td>{{ item?.created | date:'d-MMM HH:mm' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</ion-content>-->

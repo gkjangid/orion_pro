@@ -1,0 +1,43 @@
+page-activity-info {
+
+    .activity-title {
+        margin:  0;
+        padding: 1em;
+        color: white;
+        background-color: color( $colors, primary );
+
+    }
+
+    .activity-picture {
+        width: 100%;
+        height: auto;
+    }
+
+    .line-height {
+        line-height: 1.5em;
+    }
+
+    .info-label {
+        font-size:      0.7em;
+        padding-bottom: 0.5em;
+    }
+
+    .info {
+        color:     blue;
+        font-weight: bold;
+        white-space: normal;
+    }
+
+    .info--description{
+        white-space: pre-wrap;
+    }
+
+    .info--location {
+        line-height: 1.5em;
+    }
+
+    .info--location a {
+        color: blue;
+    }
+
+}

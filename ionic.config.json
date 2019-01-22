@@ -1,0 +1,13 @@
+{
+  "name": "KurioCities",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "https://yakamoz.kuriocities.com/api"
+    }
+  ]
+}

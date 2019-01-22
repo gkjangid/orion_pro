@@ -1,0 +1,30 @@
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>Activity Journal</ion-title>
+
+        <ion-buttons right>
+            <button ion-button
+            [disabled]='userActivityJournal.text && !userActivityJournal.text.trim()'
+            (click)='saveJournal()'
+            >Save
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <h5>{{ userActivity?.activity?.title }}</h5>
+
+    <journal-editor
+        [(text)] = 'userActivityJournal.text'
+    ></journal-editor>
+
+    <div class='error' text-center>{{ error }}</div>
+
+</ion-content>

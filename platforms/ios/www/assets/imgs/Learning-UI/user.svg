@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="15px" height="18px" viewBox="0 0 15 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>Oval</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="V5" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Login" transform="translate(-63.000000, -213.000000)" fill="#12C3F4" fill-rule="nonzero">
+            <g id="Group-6" transform="translate(63.000000, 213.000000)">
+                <path d="M7.30697652,7.35483871 C5.27599389,7.35483871 3.62955717,5.70840198 3.62955717,3.67741935 C3.62955717,1.64643673 5.27599389,0 7.30697652,0 C9.33795915,0 10.9843959,1.64643673 10.9843959,3.67741935 C10.9843959,5.70840198 9.33795915,7.35483871 7.30697652,7.35483871 Z M7.30697652,18 C3.27471846,18 -0.273668639,17.2903226 0.0166539416,15.516129 C0.79084749,10.8709677 3.21020233,8.16129032 7.30697652,8.16129032 C11.4037507,8.16129032 13.8231056,10.9032258 14.5972991,15.516129 C14.8876217,17.2903226 11.3392346,18 7.30697652,18 Z" id="Oval"></path>
+            </g>
+        </g>
+    </g>
+</svg>

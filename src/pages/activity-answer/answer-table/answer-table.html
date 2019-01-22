@@ -1,0 +1,42 @@
+<button
+  margin-top
+  ion-button block round
+  (click)='answerChanged( userActivity.answers[ questionIdx ] )'
+>OK</button>
+
+<ion-scroll
+    scrollX='true' scrollY='true' zoom='false'
+    [style.height]='getScrollHeight()'
+>
+    <table border='1' align='center' #answertable>
+        <thead>
+            <th>&nbsp;</th>
+            <th *ngFor='let column of question.table.columns'>{{ column.label }}</th>
+        </thead>
+
+        <tbody>
+        <tr *ngFor='let row of question.table.rows; index as rowIndex'>
+            <td class='strong'>{{ row.label }}</td>
+            <td
+            *ngFor='let column of question.table.columns; index as colIndex'
+            class='{{ getResult( rowIndex, colIndex ) }}'
+            >
+                <ion-item>
+                    <ion-input
+                        *ngIf='!isDisabled( rowIndex, colIndex )'
+                        [(ngModel)]='userActivity.answers [questionIdx] [rowIndex] [colIndex]'
+                        text-center
+                        placeholder='...'
+                    ></ion-input>
+                </ion-item>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</ion-scroll>
+
+<button
+  margin-top
+  ion-button block round
+  (click)='answerChanged( userActivity.answers[ questionIdx ] )'
+>OK</button>

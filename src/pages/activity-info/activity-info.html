@@ -1,0 +1,192 @@
+<ion-header *ngIf='api.user.userId'>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ activity?.title }}</ion-title>
+  </ion-navbar>
+
+  <ion-toolbar no-padding *ngIf='showToolbar()'>
+    <ion-grid no-padding>
+      <ion-row no-padding>
+
+        <ion-col no-padding *ngIf='showButtonIf( "KCT-Activity-Send" )'>
+          <a ion-button block outline round
+            no-margin
+            color='light'
+            [href]='send()'
+            target='_blank'
+          >Send
+          </a>
+        </ion-col>
+
+        <ion-col no-padding *ngIf='showButtonIf( "KCT-Activity-Invite" )'>
+          <a ion-button block outline round
+            no-margin
+            color='light'
+            (click)='invite()'
+          >Invite
+          </a>
+        </ion-col>
+
+        <ion-col no-padding *ngIf='showButtonIf( "KCT-Activity-Enroll" )'>
+          <a ion-button block outline round
+            no-margin
+            color='light'
+            [attr.disabled]='enrollBtnDisabled'
+            (click)='enroll()'
+          >Enroll
+          </a>
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content *ngIf='api.user.userId'>
+<content-grid>
+
+  <div text-center>
+    <app-media
+      [mediaType]   = 'activity.pictureUrlType'
+      [mediaUrl]    = 'activity.pictureUrl'
+      cssClassImage = 'activity-picture'
+      cssClassVideo = 'activity-picture'
+      defaultImage  = 'activity-info.png'
+    ></app-media>
+
+    <div text-center *ngIf='!activity?.title' padding margin>
+      <h1 padding margin><ion-spinner padding margin></ion-spinner></h1>
+    </div>
+  </div>
+
+  <h5 class="activity-title">
+    {{ activity?.title }}
+  </h5>
+
+  <div padding class='line-height'>
+      <p class='info--brief-description'>{{activity?.briefDescription}}</p>
+  </div>
+
+
+  <ion-list class='activity-info'>
+
+    <ion-item *ngIf='activity.outcomes?.length && activity.outcomes [0].text'>
+      <p class='info-label'>Learning Outcomes</p>
+      <ul>
+        <ng-container *ngFor='let objective of activity?.outcomes'>
+          <li *ngIf='objective.text' padding-bottom class='info info--outcome'>
+            {{ objective.verb }} {{ objective.text }}
+          </li>
+        </ng-container>
+      </ul>
+    </ion-item>
+
+
+    <ion-item *ngIf='activity.ageGroups?.length'>
+        <p class='info-label'>Age</p>
+        <p class='info info--age'
+            *ngFor='let ageGroup of activity.ageGroups'
+        >
+          {{ ageGroup }}
+        </p>
+      </ion-item>
+
+<!--
+    <ion-item *ngIf='activity.cities?.length'>
+      <p class='info-label'>City</p>
+      <p class='info info--city'
+          *ngFor='let city of activity.cities'
+      >
+          {{ city }}
+      </p>
+    </ion-item>
+ -->
+
+    <ion-item *ngIf='activity.locations?.length'>
+      <p class='info-label'>Location</p>
+      <p class='info info--location'
+          *ngFor='let location of activity.locations'
+      >
+          {{ location }}
+      </p>
+    </ion-item>
+
+
+    <ion-item *ngIf='activity.cost'>
+      <p class='info-label'>Cost</p>
+      <p class='info info--cost'>{{ activity.cost }}</p>
+    </ion-item>
+
+
+    <ion-item *ngIf='activity.situation'>
+      <p class='info-label'>Indoor / Outdoor</p>
+      <p class='info info--situation'>{{ activity.situation }}</p>
+    </ion-item>
+
+
+    <ion-item *ngIf='activity.duration'>
+      <p class='info-label'>Duration</p>
+      <p class='info info--duration'>{{ activity.duration }}</p>
+    </ion-item>
+
+
+    <ion-item *ngIf='activity.permanentDates || activity.fromDate'>
+      <p class='info-label'>Date</p>
+      <p class='info info--date' *ngIf='!activity?.permanentDates'>
+          <span>{{ activity?.fromDate | date:'d-MMM' }}</span>
+          <span *ngIf='activity?.toDate'>
+              <span class='no-bold'> &nbsp; to &nbsp; </span>
+              <span>{{ activity?.toDate   | date:'d-MMM' }}</span>
+          </span>
+      </p>
+      <p class='info info--date' *ngIf='activity?.permanentDates'>Permanent</p>
+      <p class='info info--date' *ngIf='activity?.datesComment'>{{ datesComment }}</p>
+    </ion-item>
+
+
+    <ion-item *ngIf='activity.hours24 || activity.fromTime'>
+      <p class='info-label'>Time</p>
+      <p class='info info--time' *ngIf='!activity?.hours24'>
+          <span>{{ activity?.fromTime }}</span>
+          <span *ngIf='activity?.toTime'>
+              <span class='no-bold'> &nbsp; to &nbsp; </span>
+              <span>{{ activity?.toTime }}</span>
+          </span>
+      </p>
+      <p class='info info--time' *ngIf='activity?.hours24'>24 hours</p>
+      <p class='info info--time' *ngIf='activity?.timesComment'>{{ timesComment }}</p>
+    </ion-item>
+
+
+    <ion-item *ngIf='getSubjects()'>
+      <p class='info-label'>Subjects</p>
+      <p class='info info--subjects'>{{ getSubjects() }}</p>
+    </ion-item>
+
+
+    <ion-item *ngIf='getSkill()'>
+      <p class='info-label'>Skill</p>
+      <p class='info info-skill'>{{ getSkill() }}</p>
+    </ion-item>
+
+
+    <ion-item *ngIf='getlist( "jobs" )'>
+      <p class='info-label'>Jobs</p>
+      <p class='info info--jobs'>{{ getlist( 'jobs' ) }}</p>
+    </ion-item>
+
+
+    <ion-item *ngIf='getlist( "contexts" )'>
+      <p class='info-label'>Intelligences</p>
+      <p class='info info--contexts'>{{ getlist( 'contexts' ) }}</p>
+    </ion-item>
+
+  </ion-list>
+
+</content-grid>
+</ion-content>

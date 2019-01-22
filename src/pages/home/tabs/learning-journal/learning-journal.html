@@ -1,0 +1,84 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>
+            <ion-spinner color='light' *ngIf='showSpinner'></ion-spinner>
+            <span *ngIf='!showSpinner'>Journals</span>
+        </ion-title>
+          <ion-buttons end>
+      <button ion-button no-padding>
+        <ion-item>
+    <ion-avatar>
+      <img src="assets/imgs/slide0.jpg">
+    </ion-avatar>
+  </ion-item>
+      </button>
+    </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+
+        <ion-segment [(ngModel)]='segment' *ngIf='featureEnabled( "Activity-Journal" )'>
+            <ion-segment-button value='general'>General</ion-segment-button>
+            <ion-segment-button value='activity'>Activity</ion-segment-button>
+        </ion-segment>
+
+        <ng-container [ngSwitch]='segment'>
+
+            <section *ngSwitchCase='"general"'>
+
+                <ion-fab bottom right>
+                    <button mini color='primary' ion-fab (click)='learningJournalPage()'>
+                        <ion-icon name='add'></ion-icon>
+                    </button>
+                </ion-fab>
+
+                <h6 padding *ngIf='!journals?.general?.length'>Click '+' to add journals</h6>
+
+                <ion-list *ngIf='journals?.general?.length'>
+                    <button ion-item
+                        *ngFor='let item of journals?.general'
+                        (click)='learningJournalPage( item )'
+                    >
+                        {{ item.title }}
+                    </button>
+                </ion-list>
+
+            </section>
+
+
+            <section *ngSwitchCase='"activity"'>
+                <h6 padding *ngIf='!journals?.activity?.length'>No journals available</h6>
+
+                <ion-list>
+                    <button ion-item (click)='activityJournalPage( item )'
+                        *ngFor='let item of journals?.activity'
+                    >
+                        {{ item.title }}
+                    </button>
+                </ion-list>
+            </section>
+
+        </ng-container>
+
+<!-- <ion-list>
+    <ion-item>
+      <h2>My Journal 2</h2>
+     <ion-icon item-end  ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
+    </ion-item>
+
+</ion-list>  -->
+
+ <ion-list inset>
+    <button ion-item *ngFor="let item of items" (click)="itemSelected(item)">
+      {{ item }}
+    </button>
+  </ion-list>
+
+</ion-content>
+
+

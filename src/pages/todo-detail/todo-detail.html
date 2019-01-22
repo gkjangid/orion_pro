@@ -1,0 +1,77 @@
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+<ion-header>
+    <ion-navbar>
+        <ion-title>To Do Details</ion-title>
+        <ion-buttons right>
+            <button ion-button (click)='save()'>Save</button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-item margin-vertical>
+        <ion-label stacked>Action</ion-label>
+        <ion-textarea
+            [(ngModel)]='model.description'
+            placeholder='Insert here the specific action you will take'
+        ></ion-textarea>
+    </ion-item>
+
+
+    <ion-item margin-vertical>
+        <ion-label stacked>Deadline</ion-label>
+        <ion-datetime
+            [(ngModel)]='model.deadline'
+            displayFormat='DD-MMM-YYYY' [min]='minYear' [max]='maxYear'
+            placeholder='Insert here the date by which the action will be completed'
+        ></ion-datetime>
+    </ion-item>
+
+
+    <ion-list no-lines margin-vertical>
+        <ion-item>
+            <ion-label stacked>Status</ion-label>
+            <ion-select interface='popover' [(ngModel)]='model.status'>
+                <ion-option
+                    *ngFor='let item of statuses'
+                    [value]='item[0]'
+                >{{ item[1] }}</ion-option>
+            </ion-select>
+        </ion-item>
+    </ion-list>
+
+
+    <ion-list no-lines margin-vertical>
+        <ion-item>
+            <ion-label stacked>Category</ion-label>
+            <ion-select interface='popover' [(ngModel)]='model.category_id'>
+                <ion-option
+                    *ngFor='let item of categories'
+                    [value]='item.id'
+                >{{ item.name }}</ion-option>
+            </ion-select>
+        </ion-item>
+    </ion-list>
+
+
+    <div margin-vertical padding-left>
+        <ion-label stacked margin-bottom>Notes</ion-label>
+        <journal-editor
+            height='30vh'
+            [(text)] = 'model.notes'
+        ></journal-editor>
+    </div>
+
+</ion-content>
+
+
+<ion-footer>
+    <ion-toolbar [color]='footerColor'>
+        <span ion-text color='light' padding-left>
+            <strong>{{ errorMsg }}</strong>
+        </span>
+    </ion-toolbar>
+</ion-footer>

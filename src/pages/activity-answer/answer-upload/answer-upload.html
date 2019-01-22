@@ -1,0 +1,23 @@
+<div *ngIf='userActivity.answers [questionIdx]' margin-vertical>
+    Uploaded file:
+    <a  [href]='userActivity.uploads [questionIdx]'
+        [download]='userActivity.answers [questionIdx]'
+    >
+        {{ userActivity.answers [questionIdx] }}
+    </a>
+</div>
+
+<label margin-vertical>
+    <input
+        type='file'
+        class='camera--file-input__'
+        (change)='answerChanged( $event )'
+    >
+</label>
+
+<button
+  ion-button block round
+  margin-vertical
+  [disabled]='submitDisabled'
+  (click)='submit()'
+>Upload</button>

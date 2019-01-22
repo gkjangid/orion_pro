@@ -1,0 +1,10 @@
+answer-radio {
+
+    ion-radio.correct-answer .radio-inner {
+        border-color: lime !important;
+    }
+    ion-radio.wrong-answer .radio-inner {
+        border-color: red !important;
+    }
+
+}

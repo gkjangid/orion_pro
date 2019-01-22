@@ -1,0 +1,69 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Activity Invitation</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+<content-grid>
+
+    <ion-segment [(ngModel)]='segment'>
+        <ion-segment-button value='groups'   >Groups   </ion-segment-button>
+        <ion-segment-button value='individuals'>Individuals</ion-segment-button>
+    </ion-segment>
+
+    <ion-item>
+        <ion-label>Start Date</ion-label>
+        <ion-datetime
+            displayFormat='DD-MMM-YYYY'
+            pickerFormat='DD-MMM-YYYY'
+            [(ngModel)]='startDate'
+            placeholder='N/A'
+            [min]='minYear'
+            [max]='maxYear'
+        ></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>Deadline</ion-label>
+        <ion-datetime
+            displayFormat='DD-MMM-YYYY'
+            pickerFormat='DD-MMM-YYYY'
+            [(ngModel)]='deadline'
+            placeholder='N/A'
+            [min]='minYear'
+            [max]='maxYear'
+        ></ion-datetime>
+    </ion-item>
+
+    <button ion-button block round color='primary'
+        (click)='invite()'
+        [disabled]='showSpinner'
+    >
+        <ion-spinner *ngIf='showSpinner'></ion-spinner>
+        Invite
+    </button>
+
+    <ion-item [ngSwitch]='segment'>
+
+        <ion-list *ngSwitchCase='"groups"'>
+            <ng-container *ngFor='let item of groups; index as index'>
+                <ion-item *ngIf='getGroupName( item.name )'>
+                    <ion-label>{{ getGroupName( item.name ) }}</ion-label>
+                    <ion-checkbox [(ngModel)]='groups [index] .selected'></ion-checkbox>
+                </ion-item>
+            </ng-container>
+        </ion-list>
+
+        <ion-list *ngSwitchCase='"individuals"'>
+            <ion-item *ngFor='let item of individuals; index as index'>
+                <ion-label>{{ item.username }}</ion-label>
+                <ion-checkbox [(ngModel)]='individuals [index] .selected'></ion-checkbox>
+            </ion-item>
+        </ion-list>
+
+    </ion-item>
+
+</content-grid>
+</ion-content>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="50px" height="56px" viewBox="0 0 50 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>leftArrow</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-44.4%" y="-38.9%" width="188.9%" height="188.9%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.4 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <rect id="path-2" x="0" y="0" width="36" height="36" rx="18"></rect>
+    </defs>
+    <g id="V5" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Questions---3" transform="translate(0.000000, -285.000000)">
+            <g id="leftArrow" filter="url(#filter-1)" transform="translate(22.000000, 311.000000) scale(-1, 1) translate(-22.000000, -311.000000) translate(4.000000, 293.000000)">
+                <g id="Rectangle-5">
+                    <mask id="mask-3" fill="white">
+                        <use xlink:href="#path-2"></use>
+                    </mask>
+                    <use id="Mask" fill="#12C3F4" xlink:href="#path-2"></use>
+                    <rect fill="#000000" opacity="0.05" mask="url(#mask-3)" x="-82.9565217" y="18" width="252.782609" height="29.7391304"></rect>
+                </g>
+                <g id="noun_Arrow_331218-Copy" transform="translate(13.000000, 11.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                    <g id="Group">
+                        <g id="a-link">
+                            <g id="a">
+                                <path d="M0.555557649,12.3121117 C0.584417089,13.615667 1.88237243,14.4049947 3.01952223,13.7844253 L12.1640096,8.44638177 C12.6620595,8.1552596 13,7.62185969 13,6.9967598 C13,6.37164435 12.6620595,5.83824444 12.1640096,5.54712032 L3.01952223,0.216669826 C1.88237243,-0.403918958 0.584417089,0.377864244 0.555557649,1.68140014 L0.555557649,12.3121117 Z" id="Shape"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

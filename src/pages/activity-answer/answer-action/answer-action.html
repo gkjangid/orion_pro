@@ -1,0 +1,26 @@
+<ion-item>
+    <ion-textarea
+        [(ngModel)]='model.answer'
+        placeholder='Insert here the specific action you will take'
+        #fieldAnswer='ngModel'
+    ></ion-textarea>
+</ion-item>
+
+
+<ion-item margin-top>
+    <ion-label stacked></ion-label>
+    <ion-datetime
+        [(ngModel)]='model.deadline'
+        displayFormat='DD-MMM-YYYY' [min]='minYear' [max]='maxYear'
+        placeholder='Insert here the date by which the action will be completed'
+        #fieldDeadline='ngModel'
+    ></ion-datetime>
+</ion-item>
+
+
+<button
+    *ngIf='!userActivity?.completed'
+    ion-button block round
+    [disabled]='( fieldAnswer.pristine && fieldDeadline.pristine ) || !model.answer || !model.deadline'
+    (click)='answerChanged()'
+>OK</button>

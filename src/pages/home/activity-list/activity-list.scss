@@ -1,0 +1,46 @@
+activity-list {
+
+    ion-card-content {
+        position: relative;
+    }
+
+    .activity-info--enrolled {
+        margin-right: 0.5em !important;
+    }
+
+    .activity-info--title {
+        color: black !important;
+        font-weight: bold;
+    }
+
+    .activity-image {
+        border: solid thin lightgrey;
+    }
+
+    // -----
+
+    .format__1.activity-info {
+        position: absolute;
+        bottom:   0;
+        margin-bottom:    1em;
+        background-color: black;
+        opacity:    0.6;
+        padding:    0.4em;
+        color:      white !important;
+        width:      calc( 100% - 2.35em );
+    }
+
+    .format__1  .activity-info--title,
+    .format__1  .activity-info--description {
+        color: white !important;
+        opacity: 1;
+    }
+
+    .draft {
+        color: color( $colors, danger );
+        font-weight: bold;
+        font-style:  italic;
+        padding-right: 0.5em;
+    }
+
+}

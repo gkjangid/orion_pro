@@ -1,0 +1,157 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>My Activities</ion-title>
+
+<ion-buttons end>
+      <button ion-button no-padding>
+        <ion-item>
+    <ion-avatar>
+      <img src="assets/imgs/slide0.jpg">
+    </ion-avatar>
+  </ion-item>
+      </button>
+    </ion-buttons>
+
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content *ngIf='api.userActivities.length'>
+
+<ion-card *ngFor='let activity of api.userActivities; index as index; trackBy: trackByActivity'>
+  <ion-item (click)='runActivity( activity )'>
+    <ion-thumbnail item-start>
+       <img class="circle-pic" [src]='activity.pictureUrl || "assets/imgs/activity-list.png"'>
+    </ion-thumbnail>
+       <h2>{{ activity.title.split('::')[2] }} <small style="color:#928f8f">({{ activity.journal_count }} Challenges )</small> </h2>
+    <ion-icon name="md-calendar"></ion-icon>
+      <p style="display: -webkit-inline-box;">{{ activity.modified | date:'d-MMM HH:mm' }}</p>
+      <ion-badge item-end *ngIf='activity.state == "Completed"' color="secondary">{{ activity.state }}</ion-badge>
+      <ion-badge item-end *ngIf='activity.state == "In Progress"' color="danger">{{ activity.state }}</ion-badge>
+      <ion-badge item-end *ngIf='activity.state == "Enrolled"'>{{ activity.state }}</ion-badge>
+  </ion-item>
+</ion-card>
+
+    <!-- <content-grid *ngIf='!api.userActivities.length && showNoActivities'>
+        <div class='no-activities-container'>
+            <h4>You have not enrolled in any activities yet.</h4>
+            <br><br>
+
+            <div style='margin-left:20%; margin-right:20%;'>
+            <button
+                *ngFor='let item of noActivitiesButtons; index as index'
+                ion-button block round
+                color='primary'
+                padding-vertical margin
+                (click)='selectTab( index+1 )'
+            >
+                {{ item }}
+            </button>
+            </div>
+        </div>
+    </content-grid>
+
+
+    <content-grid *ngIf='api.userActivities.length'>
+
+        <ion-segment [(ngModel)]='activityGroup'>
+            <ion-segment-button
+                *ngFor='let item of activityGroups'
+                [value]='item.name'
+            >{{ item.label }}</ion-segment-button>
+        </ion-segment>
+
+        <section>
+
+            <ng-container *ngFor='let activity of api.userActivities; index as index; trackBy: trackByActivity'>
+
+                <ion-card margin-vertical
+                    *ngIf='
+                        activity.state == activityGroup
+                        && ( !activity.start_date || activity.start_date <= today )
+                    '
+                >
+                <ion-card-header (click)='runActivity( activity )'>
+                        {{ activity.title }}
+                    </ion-card-header>
+
+
+                    <ion-card-content (click)='runActivity( activity )'>
+
+                        <ion-item
+                            detail-none
+                            no-margin no-padding
+                        >
+                            <ion-thumbnail item-start>
+                                <img class='activity-image' alt=''
+                                [src]='activity.pictureUrl || "/app/assets/imgs/activity-list.png"'
+                            >
+                            </ion-thumbnail>
+
+                            <p class='activity-description'>
+                                {{ activity.description }}
+                            </p>
+                        </ion-item>
+
+                    </ion-card-content>
+
+                    <section class='ion-card-footer'>
+
+                        <p class='activity-info activity-info__location'>
+                            {{ getLocations( activity ) }}
+                        </p>
+
+                        <p class='activity-info' *ngIf='activity.fromDate'>
+                            {{ activity.fromDate | date:'dd-MMM' }}
+                            <span class='to' *ngIf='activity.toDate'>to</span>
+                            {{ activity.toDate | date:'dd-MMM' }}
+                            <span *ngIf='activity.datesComment'>({{ activity.datesComment }})</span>
+                        </p>
+
+                        <p class='activity-info' *ngIf='activity.fromTime'>
+                            {{ activity.fromTime }}
+                            <span class='to' *ngIf='activity.toTime'>to</span>
+                            {{ activity.toTime }}
+                            <span *ngIf='activity.timesComment'>({{ activity.timesComment }})</span>
+                        </p>
+
+                        <p class='activity-info' *ngIf='activity.deadline' ion-text color='primary'>
+                            Commencement date: {{ activity.start_date | date: "d-MMM-yyyy" }}
+                        </p>
+
+                        <p class='activity-info' *ngIf='activity.deadline' ion-text color='primary'>
+                            Deadline: {{ activity.deadline | date: "d-MMM-yyyy" }}
+                        </p>
+
+                        <p text-center>
+                            <ion-icon name='ios-more' (click)='toggleInfo( index )'></ion-icon>
+                        </p>
+
+                        <div *ngIf='showInfo && showInfo [index]'>
+
+                            <p class='activity-info' *ngIf='activity.situation'>
+                                {{ activity.situation }}
+                            </p>
+
+                            <p class='activity-info' *ngIf='activity.duration'>
+                                Duration: {{ activity.duration }}
+                            </p>
+
+                            <p class='activity-info' *ngIf='activity.cost'>
+                                Cost: {{ activity.cost }}
+                            </p>
+
+                        </div>
+
+                    </section>
+
+                </ion-card>
+            </ng-container>
+        </section>
+    </content-grid> -->
+
+
+</ion-content>

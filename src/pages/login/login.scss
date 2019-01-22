@@ -1,0 +1,141 @@
+page-login {
+
+.content-md, page-login, .content-ios {
+    background: url(../assets/imgs/Learning-UI-graphics/background-1.png) no-repeat;
+    background-size:100% 100%;
+}
+.card-ios, .card-md {
+    margin: 20px 19px !important;
+    border-radius: 4px;
+    width: calc(100% - 34px)!important;
+    font-size: 1.4rem;
+    background: #fff;
+    -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3) !important;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3) !important;
+}
+
+div.scroll-content {
+    background-color: transparent !important;
+}
+.ion-ios-lock:before {
+    content:url(../assets/imgs/Learning-UI/password.svg);
+}
+.ion-ios-person:before {
+    content:url(../assets/imgs/Learning-UI/user.svg);
+}
+.item-input .label-md, .item-select .label-md, .item-datetime .label-md {
+    color: #12c3f4;
+}
+.segment-md .segment-button {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    width: 0;
+    height: 4.2rem;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: transparent;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 4rem;
+    text-transform: capitalize;
+    color: #fff;
+    background-color: transparent;
+    opacity: 0.9;
+    -webkit-transition: 100ms all linear;
+    transition: 100ms all linear;
+    padding: 0 6px;
+}
+
+.toolbar-title img { width:25%;}
+.segment-ios .segment-button {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    width: 0;
+    height: 3.2rem;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    font-size: 1.5rem;
+    line-height: 3rem;
+    color: #ffffff;
+    background-color: transparent;
+    font-weight:600;
+}
+.list-ios > .item-block:first-child {
+    border-top: 0.55px solid transparent;
+}
+.usre-icon{
+    position: absolute;
+    z-index: 999;
+    width: 5%;
+    margin-top: 30px;
+}
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill
+ {background-color: transparent !important; 
+    color: #ccc !important;
+    padding-left: 10px;
+    }
+.label-ios + ion-input .text-input, .label-ios + ion-textarea .text-input, .label-ios + .input + .cloned-input {
+    margin-left: 0px;
+    width: calc(100% - (16px / 2) - 16px);
+}
+  .item-ios,
+  .item-md {
+    border-bottom: solid 1px #ccc;
+    padding-left: 0px;
+    }
+ .card-content-ios {
+    padding: 13px 16px 0px !important;
+    font-size: 1.4rem;
+    line-height: 1.4;
+}
+ion-app.ios [margin], ion-app.ios [margin] .scroll-content {
+    margin: 16px 16px 16px 14px !important;
+}
+.button-md, .button-ios {
+    border-radius: 4px;
+    height: 2.7em;
+    font-size: 1.6rem;
+    color: #fff;
+    background: rgba(18,195,244,1);
+background: -moz-linear-gradient(top, rgba(18,195,244,1) 0%, rgba(18,195,244,1) 50%, rgba(33,180,226,1) 51%, rgba(18,195,244,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(18,195,244,1)), color-stop(50%, rgba(18,195,244,1)), color-stop(51%, rgba(33,180,226,1)), color-stop(100%, rgba(18,195,244,1)));
+background: -webkit-linear-gradient(top, rgba(18,195,244,1) 0%, rgba(18,195,244,1) 50%, rgba(33,180,226,1) 51%, rgba(18,195,244,1) 100%);
+background: -o-linear-gradient(top, rgba(18,195,244,1) 0%, rgba(18,195,244,1) 50%, rgba(33,180,226,1) 51%, rgba(18,195,244,1) 100%);
+background: -ms-linear-gradient(top, rgba(18,195,244,1) 0%, rgba(18,195,244,1) 50%, rgba(33,180,226,1) 51%, rgba(18,195,244,1) 100%);
+background: linear-gradient(to bottom, rgba(18,195,244,1) 0%, rgba(18,195,244,1) 50%, rgba(33,180,226,1) 51%, rgba(18,195,244,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#12c3f4', endColorstr='#12c3f4', GradientType=0 );
+    margin: 0.4rem 0.2rem;
+    padding: 0 1em;
+}
+ion-icon {
+    display: inline-block;
+    font-size: 1.7em;
+    padding-right: 5px;
+}
+.segment-ios .segment-button.segment-activated {
+    color: #fff;
+    background-color: transparent !important;
+    opacity: 1;
+    -webkit-transition: 100ms all linear;
+    transition: 100ms all linear;
+}
+
+.card-ios {
+    margin: 12px;
+    border-radius: 4px;
+    width: calc(100% - 24px);
+    font-size: 1.4rem;
+    background: #fff;
+    -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3) !important;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3) !important;
+}
+ .dactive {
+    color:#a2e6f9 !important;
+   
+}
+}

@@ -1,0 +1,18 @@
+answer-feedback-modal {
+
+    background-color: white;
+
+    .message{
+        font-size:   1.25em;
+        line-height: 1.5em;
+        border:  solid 0.5em red;
+        border-radius: 0.5em;
+        text-align: center;
+        margin-bottom: 0.5em;
+    }
+
+    .message.correct{
+        border-color:  green;
+    }
+
+}

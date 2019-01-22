@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="13px" height="8px" viewBox="0 0 13 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="V5" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Networks" transform="translate(-194.000000, -169.000000)" fill="#9B9B9B" fill-rule="nonzero">
+            <path d="M203.759078,172.431175 L198.407917,167.234376 C198.086134,166.921875 197.563068,166.921875 197.241337,167.234376 C196.919606,167.546876 196.919554,168.054854 197.241337,168.367304 L202.011648,173.000009 L197.241337,177.632715 C196.919554,177.945215 196.919554,178.453193 197.241337,178.765643 C197.56312,179.078094 198.086186,179.078144 198.407917,178.765643 L203.759078,173.570457 C203.92241,173.411837 204.001636,173.205116 203.999974,173.001572 C203.999974,172.793339 203.920749,172.588182 203.759078,172.431175 Z" id="Shape" transform="translate(200.500000, 173.000000) scale(1, -1) rotate(90.000000) translate(-200.500000, -173.000000) "></path>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,16 @@
+page-chat {
+
+    .message--username {
+        font-size:   smaller;
+        font-weight: bold;
+    }
+    .message--time {
+        font-size:   smaller;
+        padding-right: 1em;
+    }
+    .team--name {
+        color: color( $colors, primary );
+        font-weight: bold;
+    }
+
+}

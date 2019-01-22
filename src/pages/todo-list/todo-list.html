@@ -1,0 +1,63 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>To Do List</ion-title>
+        <ion-buttons right>
+            <button ion-button (click)='gotoTodo()'>Add</button>
+        </ion-buttons>
+    </ion-navbar>
+
+    <ion-item-divider color='dark'>
+		<ion-grid>
+		<ion-row>
+		<ion-col col-8>Description/Deadline</ion-col>
+		<ion-col col-4 text-center >Status</ion-col>
+		</ion-row>
+		 
+		</ion-grid>
+
+    </ion-item-divider>
+
+</ion-header>
+
+
+<ion-content>
+
+<!--     <table border='1' width='100%'>
+
+        <thead>
+            <tr>
+                <th text-left>Description</th>
+                <th>Deadline</th>
+                <th>Status</th>
+                <th>Activity</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor='let item of todos; index as index' (click)='gotoTodo( item, index )'>
+                <td text-wrap>{{ item.description }}</td>
+                <td text-center>{{ item.deadline | date }}</td>
+                <td text-center>
+                    {{ statusMap [item.status] }}
+                    <span class='overdue'>{{ overdue( item ) }}</span>
+                </td>
+                <td>{{ item.activity_title }}</td>
+            </tr>
+        </tbody>
+    </table> -->
+
+
+    <ion-card>
+  <ion-item>
+    <h2>Marty McFly Wait a minute</h2>
+    <ion-icon name="md-calendar"></ion-icon>
+      <p style="display: -webkit-inline-box;">13 Oct</p>
+      <div item-end text-right>
+       <ion-badge color="danger"> in progress </ion-badge>
+       <br/>
+       <small padding-right ion-text color="danger">Overdue</small> 
+      </div>
+  </ion-item>
+</ion-card>
+
+</ion-content>

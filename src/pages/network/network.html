@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Network</ion-title>
+    </ion-navbar>
+    <ion-item-divider color='dark' padding-left>
+    My Group Memberships
+    </ion-item-divider>
+</ion-header>
+
+
+<ion-content>
+ 
+
+        <ion-list inset>
+
+            <ion-item-group>
+                
+
+                <ion-item *ngFor='let item of groups'>
+                 {{ item }}
+                </ion-item>
+            </ion-item-group>
+
+
+        </ion-list>
+
+ 
+</ion-content>

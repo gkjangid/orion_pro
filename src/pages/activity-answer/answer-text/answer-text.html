@@ -1,0 +1,13 @@
+<ion-item>
+    <ion-textarea
+        [(ngModel)]='userActivity.answers[ questionIdx ]'
+        placeholder='...'
+        #fieldAnswer='ngModel'
+    ></ion-textarea>
+</ion-item>
+
+<button
+    ion-button block round
+    [disabled]='fieldAnswer.pristine && !photoChanged'
+    (click)='answerChanged( userActivity.answers[ questionIdx ] )'
+>OK</button>

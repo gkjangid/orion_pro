@@ -1,0 +1,37 @@
+<ion-content>
+    <div padding [ngClass]='{ "vertical-middle": !status?.mediaUrl }'>
+
+        <div padding class='message' [ngClass]='{ "correct": status?.isCorrect }'>
+            {{ status?.text }}
+        </div>
+
+        <app-media [mediaUrl]='status?.mediaUrl' [mediaType]='status?.mediaType'></app-media>
+
+    </div>
+</ion-content>
+
+
+
+<ion-footer>
+    <ng-container *ngIf='status?.isCorrect; then answerCorrectBlock; else answerWrongBlock'></ng-container>
+</ion-footer>
+
+
+<ng-template #answerCorrectBlock>
+    <ion-toolbar color='light'>
+        <button class='modal-button' ion-button solid (click)='next()'>Next Question</button>
+    </ion-toolbar>
+</ng-template>
+
+
+<ng-template #answerWrongBlock>
+    <ion-toolbar color='light'>
+        <ion-buttons left>
+            <button ion-button solid color='primary' padding (click)='retry()'>Try Again</button>
+        </ion-buttons>
+
+        <ion-buttons right>
+            <button ion-button solid color='primary' padding (click)='next()' >Next Question</button>
+        </ion-buttons>
+    </ion-toolbar>
+</ng-template>

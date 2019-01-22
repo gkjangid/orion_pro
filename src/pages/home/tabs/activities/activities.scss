@@ -1,0 +1,81 @@
+activities {
+.content-ios, 
+.content-md {
+    background: url(../assets/imgs/Learning-UI-graphics/top-nav-background.png) no-repeat top center #fff;
+    background-size: 100% 25%;
+    background-position-y:-82px;
+}
+
+.searchbar-input-container {
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    border-radius: 5px;
+}
+.item-md {background: transparent !important;}
+div.scroll-content {
+    background-color: transparent;
+}
+
+.toolbar-background-ios {
+    background: #12c3f4;
+}
+.searchbar-ios .searchbar-search-icon {
+    left: 9px;
+    top: 15px;
+    background-image:url('../assets/imgs/Learning-UI/search.svg')
+    }
+.circle-pic{border-radius: 10px;}
+.searchbar-ios .searchbar-input {height: 4rem;}
+
+.searchbar-ios {
+    border-bottom: 0.55px solid transparent;;
+    background: transparent;
+}
+
+
+.header-ios .toolbar-background-ios, .footer-ios .toolbar-background-ios {
+    border-style: solid;
+    border-color: transparent;
+}
+.searchbar-input-container {
+    box-shadow:0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);;
+}
+
+ion-app.md {
+    font-family:  'Montserrat', sans-serif !important; 
+    font-size: 1.4rem;
+    background-color: #fff;
+}
+
+.toolbar-background {
+    background: #12c3f4 !important;
+    }
+.header-md::after, .tabs-md[tabsPlacement="top"] > .tabbar::after, .footer-md::before, .tabs-md[tabsPlacement="bottom"] > .tabbar::before { 
+    height: 0px !important;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAHBAMAAADzDtBxAAAAD1BMV…h/TXEAAAAaSURBVAjXYxCEAgY4UIICBmMogMsgFLtAAQCNSwXZKOdPxgAAAABJRU5ErkJggg==);
+   
+}
+.searchbar-md {
+    background: inherit;
+    padding: 0px 8px 8px 8px;
+}
+.ion-md-calendar:before {
+    color:#12c3f4;
+}
+
+.item-ios {padding:0px;background-color: transparent;}
+.item-ios.item-block .item-inner { padding-right: 0px;}
+
+.item-ios ion-thumbnail[item-start] {
+    margin: 8px 16px 8px 15px;
+}
+.tabs-ios .tab-button-icon {height: 20px;
+    font-size: 15px;}
+.ion-ios-apps-outline:before{
+    content:url(../assets/imgs/Learning-UI/activities-selected.svg);
+}
+
+
+.item-ios p {color: #444445;}
+
+}

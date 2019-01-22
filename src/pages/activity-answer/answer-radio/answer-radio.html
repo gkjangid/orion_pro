@@ -1,0 +1,24 @@
+<ion-list
+  radio-group
+  [(ngModel)]='userActivity.answers[ questionIdx ]'
+  (ngModelChange)='answerChangedRadio( userActivity.answers[ questionIdx ] )'
+  #fieldAnswer='ngModel'
+>
+  <ion-item *ngFor='let item of question.choices; index as index'>
+      <ion-label text-wrap>{{ item.choice }}</ion-label>
+      <ion-radio item-start
+        [value]='index'
+        [ngClass]='{
+          "wrong-answer":   !item.isCorrect && fieldAnswer.pristine,
+          "correct-answer":  item.isCorrect && fieldAnswer.pristine
+        }'
+      ></ion-radio>
+  </ion-item>
+</ion-list>
+
+<button
+  *ngIf='question.photoUpload'
+  ion-button block round
+  [disabled]='fieldAnswer.pristine && !photoChanged'
+  (click)='answerChanged( userActivity.answers[ questionIdx ] )'
+>OK</button>
